@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://dd7gnst6h1jrw"]
 
-[ext_resource type="FontFile" uid="uid://cr0yvyxxbpnkg" path="res://assets/ui/Ithaca-LVB75.ttf" id="1_lti8b"]
+[ext_resource type="FontFile" uid="uid://cr0yvyxxbpnkg" path="res://Ithaca-LVB75.ttf" id="1_lti8b"]
 
 [sub_resource type="GDScript" id="GDScript_lti8b"]
 script/source = "@tool
@@ -140,8 +140,10 @@ texture_filter = 1
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
-offset_top = 89.23569
-offset_bottom = 177.23593
+offset_left = 4.0
+offset_top = 80.0
+offset_right = 4.0
+offset_bottom = 168.00005
 grow_horizontal = 2
 theme_override_font_sizes/font_size = 48
 text = "AntI"
@@ -172,10 +174,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -64.0
-offset_top = -104.0
-offset_right = 64.0
-offset_bottom = 104.0
+offset_left = -151.0
+offset_top = -107.0
+offset_right = 149.0
+offset_bottom = 193.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
@@ -186,6 +188,7 @@ vertical = true
 [node name="NewGameButton" type="Button" parent="MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+size_flags_stretch_ratio = 0.0
 text = "Start"
 
 [node name="CreditsButton" type="Button" parent="MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer"]
