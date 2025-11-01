@@ -2,9 +2,9 @@
 
 [ext_resource type="PackedScene" uid="uid://cb1x0vlfr3wo0" path="res://assets/player/player.tscn" id="1_e2o6t"]
 [ext_resource type="Script" uid="uid://casx3rmduxgeq" path="res://assets/camera/camera_follow.gd" id="2_e2o6t"]
-[ext_resource type="Script" uid="uid://1tfvhd8cvgsa" path="res://assets/traps/scripts/trap_manager.gd" id="3_feb5d"]
+[ext_resource type="Script" uid="uid://1tfvhd8cvgsa" path="res://assets/traps/trap_manager.gd" id="3_feb5d"]
 [ext_resource type="Texture2D" uid="uid://d24dcarctvxjj" path="res://assets/map/tilemap.png" id="4_fc0e3"]
-[ext_resource type="PackedScene" uid="uid://dpyat81owgmyt" path="res://assets/traps/fan_trap.tscn" id="4_j5wjh"]
+[ext_resource type="Script" uid="uid://cnfpf7kymaahg" path="res://trap.gd" id="4_j5wjh"]
 [ext_resource type="Script" uid="uid://6xon8224p3qr" path="res://energy_bar.gd" id="5_7jktm"]
 [ext_resource type="FontFile" uid="uid://cr0yvyxxbpnkg" path="res://assets/ui/Ithaca-LVB75.ttf" id="6_ryrav"]
 [ext_resource type="Script" uid="uid://ban0uv08ot3lj" path="res://run_timer.gd" id="7_eow3j"]
@@ -209,7 +209,7 @@ script = ExtResource("2_e2o6t")
 
 [node name="Player" parent="." instance=ExtResource("1_e2o6t")]
 unique_name_in_owner = true
-position = Vector2(0, -9)
+position = Vector2(1, -9)
 
 [node name="env" type="Node2D" parent="."]
 
@@ -226,12 +226,8 @@ texture = SubResource("GradientTexture2D_feb5d")
 [node name="TrapManager" type="Node2D" parent="."]
 script = ExtResource("3_feb5d")
 
-[node name="FanTrap" parent="TrapManager" instance=ExtResource("4_j5wjh")]
-position = Vector2(328, -130.99998)
-rotation = 2.5140848
-speed = 80.0
-
-[node name="BearTrap" type="Node2D" parent="TrapManager"]
+[node name="Trap" type="Node2D" parent="TrapManager"]
+script = ExtResource("4_j5wjh")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 texture_filter = 1

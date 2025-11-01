@@ -1,0 +1,40 @@
+[gd_scene load_steps=5 format=3 uid="uid://dpyat81owgmyt"]
+
+[ext_resource type="Script" uid="uid://c0tel2n1om82e" path="res://fan.gd" id="1_55qqh"]
+[ext_resource type="Texture2D" uid="uid://ltt20td4uc1l" path="res://assets/traps/art/wind.png" id="2_s67nq"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_vef74"]
+particle_flag_align_y = true
+particle_flag_disable_z = true
+direction = Vector3(0, 0, 0)
+spread = 0.0
+initial_velocity_min = 300.0
+initial_velocity_max = 300.0
+gravity = Vector3(0, 0, 0)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w3lei"]
+size = Vector2(322, 20)
+
+[node name="FanTrap" type="Node2D"]
+script = ExtResource("1_55qqh")
+metadata/_custom_type_script = "uid://cnfpf7kymaahg"
+
+[node name="Fan" type="Node2D" parent="."]
+visible = false
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="Fan"]
+amount = 12
+texture = ExtResource("2_s67nq")
+process_material = SubResource("ParticleProcessMaterial_vef74")
+
+[node name="Area2D" type="Area2D" parent="Fan"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Fan/Area2D"]
+position = Vector2(151, 0)
+shape = SubResource("RectangleShape2D_w3lei")
+
+[node name="RayCast2D" type="RayCast2D" parent="Fan"]
+target_position = Vector2(50, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_s67nq")

@@ -11,6 +11,13 @@ const GRAVITY = 0.5
 const MAX_JUMP_TIME = 0.4
 var jump_length := 0.0
 
+func _ready() -> void:
+	process_priority = 10
+
+var velocity_additive: Vector2
+func modify_velocity(vel: Vector2):
+	velocity_additive += vel
+
 func _physics_process(delta: float) -> void:
 	var is_jumping = Input.is_action_pressed("jump") and jump_length <= MAX_JUMP_TIME
 	if !is_jumping and is_on_floor(): jump_length = 0.0
@@ -36,4 +43,7 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		if is_on_floor(): animation.play("RESET")
 
+	velocity += velocity_additive
+	print("Velocity: ", velocity, " this was the added: ", velocity_additive)
 	move_and_slide()
+	velocity_additive = Vector2.ZERO

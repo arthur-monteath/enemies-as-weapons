@@ -81,11 +81,11 @@ _data = {
 &"walk": SubResource("Animation_h6syq")
 }
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["player"]]
 texture_filter = 1
 script = ExtResource("1_onrkg")
 
-[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." groups=["player"]]
 emitting = false
 amount = 16
 texture = ExtResource("3_v2miy")
@@ -93,15 +93,15 @@ lifetime = 2.0
 explosiveness = 0.6
 process_material = SubResource("ParticleProcessMaterial_h6syq")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." groups=["player"]]
 texture = ExtResource("2_onrkg")
 hframes = 5
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["player"]]
 position = Vector2(0, 2)
 shape = SubResource("RectangleShape2D_onrkg")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." groups=["player"]]
 libraries = {
 &"": SubResource("AnimationLibrary_v2miy")
 }
