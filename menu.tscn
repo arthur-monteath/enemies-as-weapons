@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dwksojykfe75d"]
+[gd_scene load_steps=7 format=3 uid="uid://dd7gnst6h1jrw"]
 
 [ext_resource type="FontFile" uid="uid://cr0yvyxxbpnkg" path="res://Ithaca-LVB75.ttf" id="1_lti8b"]
 
@@ -27,6 +27,21 @@ font = ExtResource("1_lti8b")
 font_size = 100
 font_color = Color(0.89411765, 0.19607843, 0.32941177, 1)
 
+[sub_resource type="Animation" id="Animation_ouk20"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(4, 80)]
+}
+
 [sub_resource type="Animation" id="Animation_lti8b"]
 resource_name = "titlebounce"
 length = 2.0
@@ -42,21 +57,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Vector2(0, 80), Vector2(0, 141), Vector2(0, 80)]
-}
-
-[sub_resource type="Animation" id="Animation_ouk20"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(4, 80)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_mae5d"]
@@ -143,7 +143,7 @@ anchor_right = 1.0
 offset_left = 4.0
 offset_top = 80.0
 offset_right = 4.0
-offset_bottom = 168.00024
+offset_bottom = 168.00005
 grow_horizontal = 2
 theme_override_font_sizes/font_size = 48
 text = "AntI"
@@ -174,10 +174,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -64.0
-offset_top = -104.0
-offset_right = 64.0
-offset_bottom = 104.0
+offset_left = -151.0
+offset_top = -107.0
+offset_right = 149.0
+offset_bottom = 193.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
@@ -188,6 +188,7 @@ vertical = true
 [node name="NewGameButton" type="Button" parent="MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+size_flags_stretch_ratio = 0.0
 text = "Start"
 
 [node name="CreditsButton" type="Button" parent="MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer"]
