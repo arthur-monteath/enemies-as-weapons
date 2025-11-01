@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+@onready var jump_particles: GPUParticles2D = $GPUParticles2D
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var animation: AnimationPlayer = $AnimationPlayer
 
@@ -17,8 +18,11 @@ func _physics_process(delta: float) -> void:
 
 	if not is_on_floor() and !is_jumping:
 		velocity += get_gravity() * delta * GRAVITY
+		jump_particles.emitting = false
 
 	if Input.is_action_just_pressed("jump") and is_on_floor():
+		jump_particles.restart()
+		jump_particles.emitting = true
 		velocity.y = JUMP_VELOCITY
 		
 	if !is_on_floor(): animation.play("jump")
