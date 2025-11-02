@@ -10,7 +10,11 @@ func _ready() -> void:
 	on_trap_state_changed.connect(_on_trap_state_changed)
 
 func _on_trap_state_changed(value: bool):
-	get_child(0).visible = value
+	var child = get_child(0)
+	if child != null: child.visible = value
+	var sprite = get_node("Sprite2D")
+	if sprite != null and sprite.has_method("set_state"):
+		sprite.set_state(value)
 
 func toggle_trap(state = !trap_state):
 	trap_state = state

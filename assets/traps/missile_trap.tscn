@@ -8,6 +8,8 @@
 texture_filter = 1
 script = ExtResource("1_sy7ck")
 
+[node name="Visuals" type="Node2D" parent="."]
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_sy7ck")
 hframes = 2

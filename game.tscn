@@ -240,7 +240,7 @@ type = 2
 
 [node name="MissileTrap" parent="TrapManager" instance=ExtResource("6_mfdv2")]
 position = Vector2(178, -69)
-type = 2
+type = 1
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 unique_name_in_owner = true
