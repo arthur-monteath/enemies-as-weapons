@@ -4,3 +4,8 @@ extends Control
 
 func _ready() -> void:
 	title_animation_player.play("titlebounce")
+
+func _credits() -> void:
+	pass
+	
+	
