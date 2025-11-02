@@ -17,6 +17,11 @@ func _ready() -> void:
 func die():
 	velocity = Vector2.ZERO
 	velocity_additive = Vector2.ZERO
+	var sp := sprite.duplicate()
+	sp.position = position
+	sp.frame = 5
+	get_tree().create_tween().tween_property(sp, "self_modulate:a", 0, 12)
+	get_parent().add_child(sp)
 	position = Vector2(0, -9) # Spawn Position
 
 var velocity_additive: Vector2

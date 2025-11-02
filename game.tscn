@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=4 uid="uid://drkptcvq127gi"]
+[gd_scene load_steps=23 format=4 uid="uid://drkptcvq127gi"]
 
 [ext_resource type="PackedScene" uid="uid://cb1x0vlfr3wo0" path="res://assets/player/player.tscn" id="1_e2o6t"]
 [ext_resource type="Script" uid="uid://casx3rmduxgeq" path="res://assets/camera/camera_follow.gd" id="2_e2o6t"]
@@ -192,6 +192,9 @@ bg_color = Color(0.09019608, 0.08235294, 0.18039216, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7jktm"]
 bg_color = Color(0.89411765, 0.19607843, 0.32941177, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mfdv2"]
+bg_color = Color(0.09019608, 0.08235294, 0.18039216, 0.60784316)
+
 [sub_resource type="LabelSettings" id="LabelSettings_eow3j"]
 font = ExtResource("6_ryrav")
 font_size = 32
@@ -272,8 +275,16 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/background = SubResource("StyleBoxFlat_fc0e3")
 theme_override_styles/fill = SubResource("StyleBoxFlat_7jktm")
-value = 27.67
+value = 10.0
 show_percentage = false
+
+[node name="Panel" type="Panel" parent="CanvasLayer/Energy"]
+custom_minimum_size = Vector2(48, 0)
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_mfdv2")
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
 offset_right = 40.0

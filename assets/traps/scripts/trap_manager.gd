@@ -24,10 +24,18 @@ func is_any_trap_on() -> bool:
 	return false
 
 func _process(delta):
+	if energy.energy <= 10.0:
+		for trap: Trap in get_children():
+			trap.toggle_trap(false)
+		for state in trap_states.keys():
+			trap_states[state] = false
+		if energy.energy < 0.0: energy.energy = 0.0
+		return
 	for state in trap_states.values():
 		if state: energy.energy -= delta
 
 func _unhandled_input(event: InputEvent) -> void:
+	if energy.energy <= 10.0: return
 	if Input.is_action_just_pressed("trap_left"):
 		trap_states[TrapType.TRAP_LEFT] = !trap_states[TrapType.TRAP_LEFT]
 	if Input.is_action_just_pressed("trap_right"):
