@@ -10,5 +10,17 @@ func get_winner():
 		return "Player2"
 	else: return "No one"
 
-func dget_best_score():
+func get_best_score():
 	return max(score1, score2)
+
+var has_gone_one: bool = false
+func set_score(score):
+	if !has_gone_one:
+		score1 = score
+		has_gone_one = true
+	else: score2 = score
+
+func restart():
+	has_gone_one = false
+	score1 = 0
+	score2 = 0
