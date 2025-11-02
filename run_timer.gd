@@ -4,7 +4,7 @@ extends Timer
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_pressed():
-		if is_stopped(): start(120)
+		if is_stopped(): start(180)
 
 func _process(_delta: float) -> void:
 	if is_stopped(): return

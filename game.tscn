@@ -411,7 +411,7 @@ theme_override_constants/margin_top = 0
 [node name="Label" type="Label" parent="CanvasLayer/MarginContainer"]
 texture_filter = 1
 layout_mode = 2
-text = "2:00 - Press any key to Start"
+text = "3:00 - Press any key to Start"
 label_settings = SubResource("LabelSettings_eow3j")
 horizontal_alignment = 1
 
