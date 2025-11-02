@@ -14,6 +14,8 @@ var jump_length := 0.0
 func _ready() -> void:
 	process_priority = 10
 
+var spawn_position := Vector2(0, -9)
+
 func die():
 	velocity = Vector2.ZERO
 	velocity_additive = Vector2.ZERO
@@ -22,7 +24,7 @@ func die():
 	sp.frame = 5
 	get_tree().create_tween().tween_property(sp, "self_modulate:a", 0, 12)
 	get_parent().add_child(sp)
-	position = Vector2(0, -9) # Spawn Position
+	position = spawn_position
 
 var velocity_additive: Vector2
 func modify_velocity(vel: Vector2):

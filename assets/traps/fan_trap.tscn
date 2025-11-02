@@ -29,6 +29,7 @@ script = ExtResource("1_55qqh")
 metadata/_custom_type_script = "uid://cnfpf7kymaahg"
 
 [node name="Fan" type="Node2D" parent="."]
+visible = false
 position = Vector2(5, 0)
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="Fan"]

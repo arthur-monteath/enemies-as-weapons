@@ -34,16 +34,21 @@ func _process(delta):
 	for state in trap_states.values():
 		if state: energy.energy -= delta
 
+var trap_cost := 1.5
 func _unhandled_input(event: InputEvent) -> void:
 	if energy.energy <= 10.0: return
 	if Input.is_action_just_pressed("trap_left"):
 		trap_states[TrapType.TRAP_LEFT] = !trap_states[TrapType.TRAP_LEFT]
+		if trap_states[TrapType.TRAP_LEFT]: energy.energy -= trap_cost
 	if Input.is_action_just_pressed("trap_right"):
 		trap_states[TrapType.TRAP_RIGHT] = !trap_states[TrapType.TRAP_RIGHT]
+		if trap_states[TrapType.TRAP_RIGHT]: energy.energy -= trap_cost
 	if Input.is_action_just_pressed("trap_up"):
 		trap_states[TrapType.TRAP_UP] = !trap_states[TrapType.TRAP_UP]
-		if trap_states[TrapType.TRAP_UP]: energy.energy -= 5.0
+		if trap_states[TrapType.TRAP_UP]: energy.energy -= trap_cost
 	if Input.is_action_just_pressed("trap_down"):
 		trap_states[TrapType.TRAP_DOWN] = !trap_states[TrapType.TRAP_DOWN]
+		if trap_states[TrapType.TRAP_DOWN]: energy.energy -= trap_cost
 	for trap: Trap in get_children():
 		trap.toggle_trap(trap_states[trap.type])
+	if energy.energy <= 10.0: energy.energy = 0.0

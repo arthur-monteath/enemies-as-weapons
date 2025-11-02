@@ -1,0 +1,65 @@
+[gd_scene load_steps=11 format=3 uid="uid://dnakkfdec8js0"]
+
+[ext_resource type="PackedScene" uid="uid://mjw5bbox0k74" path="res://assets/traps/scripts/missile.tscn" id="1_8f73c"]
+[ext_resource type="Script" uid="uid://c82rxumnu6sdy" path="res://assets/traps/scripts/bomb.gd" id="2_s18sr"]
+[ext_resource type="Texture2D" uid="uid://cbu8spd550n2r" path="res://assets/traps/art/bomb.png" id="3_fardn"]
+
+[sub_resource type="Gradient" id="Gradient_lvorr"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 0.4627451, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ia8pp"]
+gradient = SubResource("Gradient_lvorr")
+
+[sub_resource type="Curve" id="Curve_lvorr"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -0.00086197484, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_ia8pp"]
+curve = SubResource("Curve_lvorr")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_fardn"]
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(32, 32, 0)
+emission_shape = 1
+emission_sphere_radius = 1.0
+angle_min = -360.0
+angle_max = 360.00003
+direction = Vector3(0, 0, 0)
+spread = 180.0
+initial_velocity_min = 35.0
+initial_velocity_max = 60.0
+gravity = Vector3(0, 0, 0)
+scale_max = 3.0
+scale_curve = SubResource("CurveTexture_ia8pp")
+color_ramp = SubResource("GradientTexture1D_ia8pp")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_s18sr"]
+radius = 9.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fardn"]
+radius = 32.01562
+
+[node name="Bomb" instance=ExtResource("1_8f73c")]
+script = ExtResource("2_s18sr")
+
+[node name="GPUParticles2D" parent="." index="0"]
+emitting = false
+amount = 280
+lifetime = 0.8
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_fardn")
+
+[node name="Sprite2D" parent="." index="1"]
+texture = ExtResource("3_fardn")
+
+[node name="CollisionShape2D" parent="Area2D" index="0"]
+position = Vector2(0, 1)
+shape = SubResource("CircleShape2D_s18sr")
+
+[node name="Explosion" type="Area2D" parent="." index="3"]
+unique_name_in_owner = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Explosion" index="0"]
+position = Vector2(0, 1)
+shape = SubResource("CircleShape2D_fardn")
