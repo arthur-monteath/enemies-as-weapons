@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="enemies-as-weapons"
+config/version="1.0"
 run/main_scene="uid://dd7gnst6h1jrw"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"

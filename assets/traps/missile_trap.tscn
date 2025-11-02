@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://o862gdho5n3f"]
 
-[ext_resource type="Script" uid="uid://bahe1og8vkxum" path="res://assets/traps/missile_trap.gd" id="1_sy7ck"]
+[ext_resource type="Script" uid="uid://bahe1og8vkxum" path="res://assets/traps/scripts/missile_trap.gd" id="1_sy7ck"]
 [ext_resource type="Texture2D" uid="uid://dvtawcevc1o5m" path="res://assets/traps/art/generic_trap.png" id="2_sy7ck"]
-[ext_resource type="Script" uid="uid://bwc670gcs6h1c" path="res://assets/traps/trap_sprite.gd" id="3_tpvg2"]
+[ext_resource type="Script" uid="uid://bwc670gcs6h1c" path="res://assets/traps/art/trap_sprite.gd" id="3_tpvg2"]
 
 [node name="MissileTrap" type="Node2D"]
 texture_filter = 1

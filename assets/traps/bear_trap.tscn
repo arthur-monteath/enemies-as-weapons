@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://dcg87shod5qoc"]
 
-[ext_resource type="Script" uid="uid://dwirsr5vaq8ih" path="res://bear_trap.gd" id="1_35wqs"]
+[ext_resource type="Script" uid="uid://dwirsr5vaq8ih" path="res://assets/traps/scripts/bear_trap.gd" id="1_35wqs"]
 [ext_resource type="Texture2D" uid="uid://dk50hkn5rl87c" path="res://assets/traps/art/bear_trap.png" id="2_06yeb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_35wqs"]

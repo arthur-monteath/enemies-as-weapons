@@ -6,7 +6,7 @@
 [ext_resource type="Script" uid="uid://1tfvhd8cvgsa" path="res://assets/traps/scripts/trap_manager.gd" id="3_feb5d"]
 [ext_resource type="Texture2D" uid="uid://d24dcarctvxjj" path="res://assets/map/tilemap.png" id="4_fc0e3"]
 [ext_resource type="PackedScene" uid="uid://dpyat81owgmyt" path="res://assets/traps/fan_trap.tscn" id="4_j5wjh"]
-[ext_resource type="Script" uid="uid://6xon8224p3qr" path="res://energy_bar.gd" id="5_7jktm"]
+[ext_resource type="Script" uid="uid://6xon8224p3qr" path="res://assets/ui/energy_bar.gd" id="5_7jktm"]
 [ext_resource type="PackedScene" uid="uid://dcg87shod5qoc" path="res://assets/traps/bear_trap.tscn" id="5_vef74"]
 [ext_resource type="PackedScene" uid="uid://o862gdho5n3f" path="res://assets/traps/missile_trap.tscn" id="6_mfdv2"]
 [ext_resource type="FontFile" uid="uid://cr0yvyxxbpnkg" path="res://assets/ui/Ithaca-LVB75.ttf" id="6_ryrav"]
@@ -15,7 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://c5qv4h3vp47nd" path="res://assets/traps/energy_up.tscn" id="10_hve3p"]
 [ext_resource type="PackedScene" uid="uid://c0fte4jg6cdyc" path="res://assets/player/checkpoint.tscn" id="13_lc2xo"]
 [ext_resource type="Texture2D" uid="uid://do3cimsd7kl1h" path="res://assets/player/end.png" id="15_7sc4i"]
-[ext_resource type="Script" uid="uid://dbfsyvdm3grqx" path="res://end.gd" id="15_80cx4"]
+[ext_resource type="Script" uid="uid://dbfsyvdm3grqx" path="res://assets/ui/end.gd" id="15_80cx4"]
 
 [sub_resource type="Gradient" id="Gradient_fc0e3"]
 colors = PackedColorArray(0.09019608, 0.08235294, 0.18039216, 1, 0.09019608, 0.08235294, 0.18039216, 1)

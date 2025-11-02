@@ -1,7 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://41ctbhe6ppjl"]
+[gd_scene load_steps=11 format=3 uid="uid://41ctbhe6ppjl"]
 
 [ext_resource type="Script" uid="uid://dom320v4rqx83" path="res://game_end.gd" id="1_npjxs"]
 [ext_resource type="FontFile" uid="uid://cr0yvyxxbpnkg" path="res://assets/ui/Ithaca-LVB75.ttf" id="2_tqwxg"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d4k4m"]
+bg_color = Color(0.09019608, 0.08235294, 0.18039216, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_tqwxg"]
 font = ExtResource("2_tqwxg")
@@ -34,6 +37,55 @@ shadow_offset = Vector2(1, 2)
 [sub_resource type="LabelSettings" id="LabelSettings_c8kn0"]
 font = ExtResource("2_tqwxg")
 font_size = 32
+shadow_size = 4
+shadow_color = Color(0, 0, 0, 0.59607846)
+shadow_offset = Vector2(2, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c8kn0"]
+bg_color = Color(0.09019608, 0.08235294, 0.18039216, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.89411765, 0.19607843, 0.32941177, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+expand_margin_top = 2.0
+expand_margin_bottom = 2.0
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ly00t"]
+bg_color = Color(0.89411765, 0.19607843, 0.32941177, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.09019608, 0.08235294, 0.18039216, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+expand_margin_top = 2.0
+expand_margin_bottom = 2.0
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xiimg"]
+bg_color = Color(1, 1, 1, 0)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+expand_margin_left = 2.0
+expand_margin_top = 4.0
+expand_margin_right = 2.0
+expand_margin_bottom = 4.0
 
 [node name="GameEnd" type="Control"]
 layout_mode = 3
@@ -44,50 +96,75 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_npjxs")
 
-[node name="CenterContainer" type="CenterContainer" parent="."]
+[node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_d4k4m")
 
-[node name="MarginContainer" type="MarginContainer" parent="CenterContainer"]
+[node name="CenterContainer" type="CenterContainer" parent="PanelContainer"]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/MarginContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/CenterContainer"]
 layout_mode = 2
-theme_override_constants/separation = 24
-alignment = 1
+theme_override_constants/margin_top = -16
 
-[node name="title" type="Label" parent="CenterContainer/MarginContainer/VBoxContainer"]
-layout_mode = 2
-text = "Game Over!"
-label_settings = SubResource("LabelSettings_tqwxg")
-
-[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/MarginContainer/VBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/CenterContainer/MarginContainer"]
 layout_mode = 2
 theme_override_constants/separation = 12
 alignment = 1
 
-[node name="Player" type="Label" parent="CenterContainer/MarginContainer/VBoxContainer/VBoxContainer"]
+[node name="title" type="Label" parent="PanelContainer/CenterContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "Player 1 won!"
+text = "Game Over!"
+label_settings = SubResource("LabelSettings_tqwxg")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/CenterContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 12
+alignment = 1
+
+[node name="PlayerLabel" type="Label" parent="PanelContainer/CenterContainer/MarginContainer/VBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Player 1 wins!"
 label_settings = SubResource("LabelSettings_ly00t")
 horizontal_alignment = 1
 
-[node name="HSeparator" type="HSeparator" parent="CenterContainer/MarginContainer/VBoxContainer/VBoxContainer"]
+[node name="HSeparator" type="HSeparator" parent="PanelContainer/CenterContainer/MarginContainer/VBoxContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_styles/separator = SubResource("StyleBoxFlat_tqwxg")
 
-[node name="Score1" type="Label" parent="CenterContainer/MarginContainer/VBoxContainer/VBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/CenterContainer/MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Score1" type="Label" parent="PanelContainer/CenterContainer/MarginContainer/VBoxContainer/VBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 text = "Player1 scored 100"
 label_settings = SubResource("LabelSettings_c8kn0")
 horizontal_alignment = 1
 
-[node name="Score2" type="Label" parent="CenterContainer/MarginContainer/VBoxContainer/VBoxContainer"]
+[node name="Score2" type="Label" parent="PanelContainer/CenterContainer/MarginContainer/VBoxContainer/VBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 text = "Player1 scored 100"
 label_settings = SubResource("LabelSettings_c8kn0")
 horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="PanelContainer/CenterContainer/MarginContainer/VBoxContainer/VBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_tqwxg")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_c8kn0")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ly00t")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ly00t")
+theme_override_styles/focus = SubResource("StyleBoxFlat_xiimg")
+text = "Restart"
+
+[connection signal="pressed" from="PanelContainer/CenterContainer/MarginContainer/VBoxContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]
