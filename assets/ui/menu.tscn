@@ -1,7 +1,8 @@
-[gd_scene load_steps=14 format=3 uid="uid://dd7gnst6h1jrw"]
+[gd_scene load_steps=15 format=3 uid="uid://dd7gnst6h1jrw"]
 
 [ext_resource type="Script" uid="uid://h2i7r6cxgvay" path="res://assets/ui/menu.gd" id="1_5w2xh"]
 [ext_resource type="FontFile" uid="uid://cr0yvyxxbpnkg" path="res://assets/ui/Ithaca-LVB75.ttf" id="1_lti8b"]
+[ext_resource type="AudioStream" uid="uid://bqvcu52vi6mcc" path="res://assets/camera/music.mp3" id="3_eroip"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wde4o"]
 bg_color = Color(0.09019608, 0.08235294, 0.18039216, 1)
@@ -159,6 +160,8 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_wde4o")
 
 [node name="BackgroundMusicPlayer" type="AudioStreamPlayer" parent="."]
 process_mode = 3
+stream = ExtResource("3_eroip")
+volume_db = -15.0
 autoplay = true
 
 [node name="BackgroundTextureRect" type="TextureRect" parent="."]
