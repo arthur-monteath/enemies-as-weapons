@@ -29,12 +29,20 @@ func _process(delta):
 			trap.toggle_trap(false)
 		for state in trap_states.keys():
 			trap_states[state] = false
+		update_arrows()
 		if energy.energy < 0.0: energy.energy = 0.0
 		return
 	for state in trap_states.values():
 		if state: energy.energy -= delta
+		
+@onready var arrows: Control = %Arrows
+func update_arrows():
+	arrows.get_node("left").frame = int(trap_states[TrapType.TRAP_LEFT])
+	arrows.get_node("right").frame = int(trap_states[TrapType.TRAP_RIGHT])
+	arrows.get_node("up").frame = int(trap_states[TrapType.TRAP_UP])
+	arrows.get_node("down").frame = int(trap_states[TrapType.TRAP_DOWN])
 
-var trap_cost := 1.5
+var trap_cost := 0.5
 func _unhandled_input(event: InputEvent) -> void:
 	if energy.energy <= 10.0: return
 	if Input.is_action_just_pressed("trap_left"):
@@ -51,4 +59,5 @@ func _unhandled_input(event: InputEvent) -> void:
 		if trap_states[TrapType.TRAP_DOWN]: energy.energy -= trap_cost
 	for trap: Trap in get_children():
 		trap.toggle_trap(trap_states[trap.type])
+	update_arrows()
 	if energy.energy <= 10.0: energy.energy = 0.0
