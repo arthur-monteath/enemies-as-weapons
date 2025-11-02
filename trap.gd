@@ -20,3 +20,13 @@ var trap_state: bool = false:
 	set(value):
 		if trap_state != value: emit_signal("on_trap_state_changed", value)
 		trap_state = value
+
+func get_local_direction(vector: Vector2) -> Vector2:
+	return transform.basis_xform(vector)
+
+func get_direction():
+	match type:
+		TrapManager.TrapType.TRAP_LEFT: return get_local_direction(Vector2.LEFT)
+		TrapManager.TrapType.TRAP_RIGHT: return get_local_direction(Vector2.RIGHT)
+		TrapManager.TrapType.TRAP_UP: return get_local_direction(Vector2.UP)
+		TrapManager.TrapType.TRAP_DOWN: return get_local_direction(Vector2.DOWN)

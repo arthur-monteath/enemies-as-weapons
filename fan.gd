@@ -7,5 +7,5 @@ extends Trap
 
 func _physics_process(delta: float) -> void:
 	if trap_state and area.overlaps_body(player):
-		var vel_effect := transform.basis_xform(Vector2.RIGHT * speed)
+		var vel_effect := get_local_direction(Vector2.RIGHT * speed)
 		player.modify_velocity(vel_effect)

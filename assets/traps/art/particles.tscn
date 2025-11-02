@@ -15,15 +15,15 @@ angle_min = -360.0
 angle_max = 360.00003
 direction = Vector3(0, 0, 0)
 spread = 180.0
-initial_velocity_min = 40.0
-initial_velocity_max = 160.0
+initial_velocity_min = 60.0
+initial_velocity_max = 320.0
 gravity = Vector3(0, 0, 0)
 scale_max = 1.5
 scale_curve = SubResource("CurveTexture_mfdv2")
 
 [node name="GPUParticles2D" type="GPUParticles2D"]
 emitting = false
-amount = 24
+amount = 48
 texture = ExtResource("1_l4hfn")
 lifetime = 0.4
 one_shot = true

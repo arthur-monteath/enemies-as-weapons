@@ -1,0 +1,57 @@
+[gd_scene load_steps=10 format=3 uid="uid://mjw5bbox0k74"]
+
+[ext_resource type="Texture2D" uid="uid://bjxsjtg0n073" path="res://assets/traps/art/rocket.png" id="1_ia8pp"]
+[ext_resource type="Texture2D" uid="uid://1do45ur7e7ac" path="res://assets/traps/art/rocket_particle.png" id="1_lvorr"]
+[ext_resource type="Script" uid="uid://d272t201i1na8" path="res://assets/traps/scripts/missile.gd" id="1_rh6sr"]
+
+[sub_resource type="Gradient" id="Gradient_lvorr"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 0.4627451, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ia8pp"]
+gradient = SubResource("Gradient_lvorr")
+
+[sub_resource type="Curve" id="Curve_lvorr"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.34726894), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_ia8pp"]
+curve = SubResource("Curve_lvorr")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_sfk7u"]
+particle_flag_disable_z = true
+angle_min = -360.0
+angle_max = 360.00003
+direction = Vector3(-1, 0, 0)
+spread = 5.0
+initial_velocity_min = 40.0
+initial_velocity_max = 60.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.79999995
+scale_max = 1.5999999
+scale_curve = SubResource("CurveTexture_ia8pp")
+color_ramp = SubResource("GradientTexture1D_ia8pp")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rh6sr"]
+size = Vector2(19, 9)
+
+[node name="Missile" type="Node2D"]
+texture_filter = 1
+script = ExtResource("1_rh6sr")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+amount = 32
+texture = ExtResource("1_lvorr")
+trail_lifetime = 0.2
+process_material = SubResource("ParticleProcessMaterial_sfk7u")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_ia8pp")
+hframes = 3
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-1.5, 0.5)
+shape = SubResource("RectangleShape2D_rh6sr")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

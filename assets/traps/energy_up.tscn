@@ -1,8 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://c5qv4h3vp47nd"]
+[gd_scene load_steps=4 format=3 uid="uid://c5qv4h3vp47nd"]
 
 [ext_resource type="Script" uid="uid://crfhqf7lfu5tv" path="res://energy_up.gd" id="1_6uvao"]
 [ext_resource type="Texture2D" uid="uid://bh3k63d5b0nsb" path="res://assets/energy_up.png" id="2_vfkhd"]
-[ext_resource type="PackedScene" uid="uid://43o4su6x3p56" path="res://assets/traps/particles.tscn" id="3_6uvao"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mfdv2"]
 size = Vector2(12, 12)
@@ -18,8 +17,5 @@ unique_name_in_owner = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_mfdv2")
-
-[node name="GPUParticles2D" parent="." instance=ExtResource("3_6uvao")]
-amount = 48
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
