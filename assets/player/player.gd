@@ -30,16 +30,26 @@ var velocity_additive: Vector2
 func modify_velocity(vel: Vector2):
 	velocity_additive += vel
 
+var coyote_timer
+var is_coyote_on_floor
+func calculate_coyote_is_on_floor():
+	
+	if is_on_floor():
+		is_coyote_on_floor = true
+	else if coyote_timer == null:
+		coyote_timer = get_tree().create_timer(0.15)
+
 func _physics_process(delta: float) -> void:
+	calculate_coyote_is_on_floor()
 	var is_jumping = Input.is_action_pressed("jump") and jump_length <= MAX_JUMP_TIME
-	if !is_jumping and is_on_floor(): jump_length = 0.0
+	if !is_jumping and coyote_is_on_floor(): jump_length = 0.0
 	else: jump_length += delta
 
 	if not is_on_floor() and !is_jumping:
 		velocity += get_gravity() * delta * GRAVITY
 		jump_particles.emitting = false
 
-	if Input.is_action_just_pressed("jump") and is_on_floor():
+	if Input.is_action_just_pressed("jump") and coyote_is_on_floor():
 		jump_particles.restart()
 		jump_particles.emitting = true
 		velocity.y = JUMP_VELOCITY
