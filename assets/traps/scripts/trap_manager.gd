@@ -34,6 +34,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		trap_states[TrapType.TRAP_RIGHT] = !trap_states[TrapType.TRAP_RIGHT]
 	if Input.is_action_just_pressed("trap_up"):
 		trap_states[TrapType.TRAP_UP] = !trap_states[TrapType.TRAP_UP]
+		if trap_states[TrapType.TRAP_UP]: energy.energy -= 5.0
 	if Input.is_action_just_pressed("trap_down"):
 		trap_states[TrapType.TRAP_DOWN] = !trap_states[TrapType.TRAP_DOWN]
 	for trap: Trap in get_children():

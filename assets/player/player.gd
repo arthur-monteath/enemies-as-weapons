@@ -1,4 +1,4 @@
-extends CharacterBody2D
+class_name Player extends CharacterBody2D
 
 @onready var jump_particles: GPUParticles2D = $GPUParticles2D
 @onready var sprite: Sprite2D = $Sprite2D
@@ -13,6 +13,11 @@ var jump_length := 0.0
 
 func _ready() -> void:
 	process_priority = 10
+
+func die():
+	velocity = Vector2.ZERO
+	velocity_additive = Vector2.ZERO
+	position = Vector2(0, -9) # Spawn Position
 
 var velocity_additive: Vector2
 func modify_velocity(vel: Vector2):
@@ -44,6 +49,5 @@ func _physics_process(delta: float) -> void:
 		if is_on_floor(): animation.play("RESET")
 
 	velocity += velocity_additive
-	print("Velocity: ", velocity, " this was the added: ", velocity_additive)
 	move_and_slide()
 	velocity_additive = Vector2.ZERO

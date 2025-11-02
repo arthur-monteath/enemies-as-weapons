@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://43o4su6x3p56"]
+
+[ext_resource type="Texture2D" uid="uid://1do45ur7e7ac" path="res://assets/traps/art/rocket_particle.png" id="1_l4hfn"]
+
+[sub_resource type="Curve" id="Curve_hve3p"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_mfdv2"]
+curve = SubResource("Curve_hve3p")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_hve3p"]
+particle_flag_disable_z = true
+angle_min = -360.0
+angle_max = 360.00003
+direction = Vector3(0, 0, 0)
+spread = 180.0
+initial_velocity_min = 40.0
+initial_velocity_max = 160.0
+gravity = Vector3(0, 0, 0)
+scale_max = 1.5
+scale_curve = SubResource("CurveTexture_mfdv2")
+
+[node name="GPUParticles2D" type="GPUParticles2D"]
+emitting = false
+amount = 24
+texture = ExtResource("1_l4hfn")
+lifetime = 0.4
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_hve3p")
