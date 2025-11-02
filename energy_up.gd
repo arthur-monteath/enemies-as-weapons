@@ -12,4 +12,7 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		add_sibling(particles)
 		particles.position = position
 		particles.emitting = true
+		var player = $AudioStreamPlayer2D
+		player.reparent(get_parent())
+		player.play()
 		queue_free()

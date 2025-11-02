@@ -25,4 +25,7 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	particles.emitting = true
 	if body.is_in_group("player"): (body as Player).die()
 	get_tree().create_timer(1.2).timeout.connect(trail.queue_free)
+	var player = $AudioStreamPlayer2D
+	player.reparent(get_parent())
+	player.play()
 	queue_free()

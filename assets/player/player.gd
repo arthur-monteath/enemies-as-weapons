@@ -24,6 +24,7 @@ func die():
 	sp.frame = 5
 	get_tree().create_tween().tween_property(sp, "self_modulate:a", 0, 12)
 	get_parent().add_child(sp)
+	$AudioStreamPlayer2D.play()
 	position = spawn_position
 
 var velocity_additive: Vector2

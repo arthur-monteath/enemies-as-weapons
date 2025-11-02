@@ -25,4 +25,7 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		for explode_body in explosion.get_overlapping_bodies():
 			if explode_body.is_in_group("player"): (explode_body as Player).die()
 	get_tree().create_timer(1.2).timeout.connect(explode_particles.queue_free)
+	var player = $AudioStreamPlayer2D
+	player.reparent(get_parent())
+	player.play()
 	queue_free()

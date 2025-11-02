@@ -1,8 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://cb1x0vlfr3wo0"]
+[gd_scene load_steps=13 format=3 uid="uid://cb1x0vlfr3wo0"]
 
 [ext_resource type="Script" uid="uid://dgxepg403458q" path="res://assets/player/player.gd" id="1_onrkg"]
 [ext_resource type="Texture2D" uid="uid://cvtupvarn4t5k" path="res://assets/player/player_sheet.png" id="2_onrkg"]
 [ext_resource type="Texture2D" uid="uid://b8a58qoor7gnr" path="res://assets/enemy_particle.png" id="3_v2miy"]
+[ext_resource type="AudioStream" uid="uid://ddsgi1017fk1d" path="res://assets/traps/art/sound/death.mp3" id="4_ouxva"]
 
 [sub_resource type="Curve" id="Curve_v2miy"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -105,3 +106,6 @@ shape = SubResource("RectangleShape2D_onrkg")
 libraries = {
 &"": SubResource("AnimationLibrary_v2miy")
 }
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_ouxva")

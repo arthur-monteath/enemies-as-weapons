@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://mjw5bbox0k74"]
+[gd_scene load_steps=11 format=3 uid="uid://mjw5bbox0k74"]
 
 [ext_resource type="Texture2D" uid="uid://bjxsjtg0n073" path="res://assets/traps/art/rocket.png" id="1_ia8pp"]
 [ext_resource type="Texture2D" uid="uid://1do45ur7e7ac" path="res://assets/traps/art/rocket_particle.png" id="1_lvorr"]
 [ext_resource type="Script" uid="uid://d272t201i1na8" path="res://assets/traps/scripts/missile.gd" id="1_rh6sr"]
+[ext_resource type="AudioStream" uid="uid://bx7yrg72r7t1b" path="res://assets/traps/art/sound/explosion.mp3" id="4_ei3ts"]
 
 [sub_resource type="Gradient" id="Gradient_lvorr"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 0.4627451, 0)
@@ -53,5 +54,8 @@ hframes = 3
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(-1.5, 0.5)
 shape = SubResource("RectangleShape2D_rh6sr")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_ei3ts")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
